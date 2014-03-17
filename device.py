@@ -102,8 +102,9 @@ class Device(object):
         DGI. We're basically the best controller ever since we generally satify
         the DGI instantanously. But sometimes we ignore the DGI:
 
-        * The DGI will send a NaN command initially (when it doesn't yet know
-          our state) to indicate we should ignore the command.
+        * The DGI will send a fake command initially (when it doesn't yet know
+          our state) to indicate we should ignore the command. The command is
+          fake if its value is exactly 10^8
 
         * DGI might be operating based on old state info if the state suddenly
           changes sharply based on a command in the dsp simulation script.
